@@ -3,7 +3,7 @@ package characters;
 import stuff.DefensiveStuff;
 import stuff.OffensiveStuff;
 
-public abstract class Character {
+public class Character {
 
     private String job;
     private String name;
@@ -12,7 +12,23 @@ public abstract class Character {
     private OffensiveStuff offensiveStuff;
     private DefensiveStuff defensiveStuff;
 
-    public Character() {
+    private Character() {
+        this.name = "No name";
+        this.job = "No job";
+        //this.PV = 6;
+        //this.strengthPoint = 15;
+        this.offensiveStuff = null;
+        this.defensiveStuff = null;
+    }
+
+    private Character(String name) {
+        this();
+        this.name = name;
+    }
+
+    public Character(String name, String type) {
+        this(name);
+        this.job = type;
     }
 
     public String getJob() {
@@ -61,5 +77,17 @@ public abstract class Character {
 
     public void setDefensiveStuff(DefensiveStuff defensiveStuff) {
         this.defensiveStuff = defensiveStuff;
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "job='" + job + '\'' +
+                ", name='" + name + '\'' +
+                ", PV=" + PV +
+                ", strengthPoint=" + strengthPoint +
+                ", offensiveStuff=" + offensiveStuff +
+                ", defensiveStuff=" + defensiveStuff +
+                '}';
     }
 }
