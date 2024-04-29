@@ -36,4 +36,12 @@ public class OffensiveStuff {
         this.attackPower = attackPower;
     }
 
+    @Override
+    public String toString() {
+        return "OffensiveStuff{" +
+                "typeWeapon='" + typeWeapon + '\'' +
+                ", nameWeapon='" + nameWeapon + '\'' +
+                ", attackPower=" + attackPower +
+                '}';
+    }
 }

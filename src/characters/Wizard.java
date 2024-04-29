@@ -12,6 +12,8 @@ public class Wizard extends Character {
 
         this.setPV(6);
         this.setStrengthPoint(15);
+        this.setOffensiveStuff(new OffensiveStuff("Sort","Etincelle",5));
+        this.setDefensiveStuff(new DefensiveStuff("Philtre","Philtre de defense mineure", 5));
     }
 
 }
