@@ -15,8 +15,6 @@ public class Character {
     private Character() {
         this.name = "No name";
         this.job = "No job";
-        //this.PV = 6;
-        //this.strengthPoint = 15;
         this.offensiveStuff = null;
         this.defensiveStuff = null;
     }

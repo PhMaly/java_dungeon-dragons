@@ -1,5 +1,6 @@
 import characters.Character;
 import characters.Warrior;
+import characters.Wizard;
 
 import java.util.Scanner;
 
@@ -10,54 +11,65 @@ public class Menu {
 
     public Menu() {
 
-        String createCharactere = "1.Create Charactere";
-        String exitGame = "2.Exit Game";
+    }
 
-        System.out.println(createCharactere);
-        System.out.println(exitGame);
+    public Character selectCharacter() {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("New Charactere or Exit ?");
+        Character hero = null;
 
-        int choice = input.nextInt();
-        if (choice == 1) {
-            Scanner newCharactere = new Scanner(System.in);
-            System.out.println("Choose your class : Warrior or Wizard ?");
+        while (true) {
 
-            this.classChoice = newCharactere.nextLine();
-            System.out.println("You chose : " + classChoice);
+            String createCharacter = "1.Create Charactere";
+            String editCharacter = "2.Edit Charactere";
+            String startGame = "3.GO";
 
-            Scanner charactereName = new Scanner(System.in);
-            System.out.println("Choose a name : ");
+            System.out.println(createCharacter);
+            System.out.println(editCharacter);
+            System.out.println(startGame);
 
-            this.nameChoice = charactereName.nextLine();
-            System.out.println("His name: " + this.nameChoice);
+            Scanner input = new Scanner(System.in);
+            System.out.println("New Charactere, Edit Charactere or GO ?");
 
-//            Character newCharacter = new Character(this.classChoice, this.nameChoice);
-//            System.out.println(newCharacter);
 
-        } else if (choice == 2) {
-            System.out.println("Exit Game");
+            int choice = input.nextInt();
+            if (choice == 1) {
+                Scanner inputJobChoice = new Scanner(System.in);
+                System.out.println("Choose your class : Warrior or Wizard ?");
+
+                this.classChoice = inputJobChoice.nextLine();
+                System.out.println("You chose : " + classChoice);
+
+                Scanner inputNameChoice = new Scanner(System.in);
+                System.out.println("Choose a name : ");
+
+                this.nameChoice = inputNameChoice.nextLine();
+                System.out.println("His name: " + this.nameChoice);
+
+                switch (classChoice) {
+                    case "Warrior":
+                        hero = new Warrior(this.nameChoice);
+                        break;
+
+                    case "Wizard":
+                        hero = new Wizard(this.nameChoice);
+                        break;
+                }
+                System.out.println(hero);
+
+            } else if (choice == 2) {
+                System.out.println("Edit Charactere");
+
+            } else if (choice == 3) {
+                if (hero == null) {
+                    System.out.println("Vous n'avez pas choisi de héro");
+                } else {
+                    return hero;
+                }
+            } else {
+                System.out.println("Make a Choice: 1 , 2 or 3");
+            }
+
         }
-//        System.out.println(classChoice);
-//        System.out.println(nameChoice);
-
-    }
-
-    public String getClassChoice() {
-        return classChoice;
-    }
-
-    public void setClassChoice(String classChoice) {
-        this.classChoice = classChoice;
-    }
-
-    public String getNameChoice() {
-        return nameChoice;
-    }
-
-    public void setNameChoice(String nameChoice) {
-        this.nameChoice = nameChoice;
     }
 
     @Override

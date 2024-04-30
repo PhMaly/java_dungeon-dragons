@@ -6,9 +6,6 @@ import stuff.OffensiveStuff;
 
 public class Warrior extends Character {
 
-
-
-
     public Warrior(String name) {
         super(name, "Warrior");
 

@@ -5,9 +5,11 @@ import characters.Wizard;
 
 public class Main {
     public static void main(String[] args) {
+        Menu menu = new Menu();
+        Character hero = menu.selectCharacter();
 
-        Menu start = new Menu();
-        Game game = new Game();
+        System.out.println("Vous allez jouer avec " + hero.getName() + " !");
+
 
     }
 }
