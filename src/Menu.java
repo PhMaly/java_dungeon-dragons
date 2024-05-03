@@ -6,14 +6,15 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private String classChoice;
+    private int classChoice;
     private String nameChoice;
+    private int inputDice;
 
     public Menu() {
 
     }
 
-    public Character selectCharacter() {
+    public Character displaySelectCharacter() {
 
         Character hero = null;
 
@@ -21,22 +22,24 @@ public class Menu {
 
             String createCharacter = "1.Create Charactere";
             String editCharacter = "2.Edit Charactere";
-            String startGame = "3.GO";
+            String startGame = "3.Start Game";
 
             System.out.println(createCharacter);
             System.out.println(editCharacter);
             System.out.println(startGame);
 
             Scanner input = new Scanner(System.in);
-            System.out.println("New Charactere, Edit Charactere or GO ?");
+            System.out.println("New Charactere, Edit Charactere or Start Game ?");
 
 
             int choice = input.nextInt();
             if (choice == 1) {
                 Scanner inputJobChoice = new Scanner(System.in);
-                System.out.println("Choose your class : Warrior or Wizard ?");
+                System.out.println("Choose your class :");
+                System.out.println("1.Warrior");
+                System.out.println("2.Wizard");
 
-                this.classChoice = inputJobChoice.nextLine();
+                this.classChoice = inputJobChoice.nextInt();
                 System.out.println("You chose : " + classChoice);
 
                 Scanner inputNameChoice = new Scanner(System.in);
@@ -46,23 +49,23 @@ public class Menu {
                 System.out.println("His name: " + this.nameChoice);
 
                 switch (classChoice) {
-                    case "Warrior":
+                    case 1:
                         hero = new Warrior(this.nameChoice);
                         break;
 
-                    case "Wizard":
+                    case 2:
                         hero = new Wizard(this.nameChoice);
                         break;
                 }
-                System.out.println(hero);
 
             } else if (choice == 2) {
-                System.out.println("Edit Charactere");
+                System.out.println(hero);
 
             } else if (choice == 3) {
                 if (hero == null) {
                     System.out.println("Vous n'avez pas choisi de héro");
                 } else {
+                    System.out.println("Vous allez jouer avec " + hero.getName() + " !");
                     return hero;
                 }
             } else {
@@ -72,11 +75,20 @@ public class Menu {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Menu{" +
-                "classChoice='" + classChoice + '\'' +
-                ", nameChoice='" + nameChoice + '\'' +
-                '}';
+    public void displayThrowDice() {
+        String dice = "1.Throw Dice";
+        System.out.println(dice);
+        Scanner input = new Scanner(System.in);
+        this.inputDice = input.nextInt();
+    }
+
+    public int getInputDice() {
+        return inputDice;
+    }
+
+    public void setInputDice(int inputDice) {
+        this.inputDice = inputDice;
     }
 }
+
+
