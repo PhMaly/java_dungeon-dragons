@@ -1,6 +1,6 @@
 package stuff;
 
-public class OffensiveStuff {
+abstract public class OffensiveStuff {
 
     private String typeWeapon;
     private String nameWeapon;
