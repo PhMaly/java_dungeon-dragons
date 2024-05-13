@@ -89,6 +89,22 @@ public class Menu {
     public void setInputDice(int inputDice) {
         this.inputDice = inputDice;
     }
+
+    public int getClassChoice() {
+        return classChoice;
+    }
+
+    public void setClassChoice(int classChoice) {
+        this.classChoice = classChoice;
+    }
+
+    public String getNameChoice() {
+        return nameChoice;
+    }
+
+    public void setNameChoice(String nameChoice) {
+        this.nameChoice = nameChoice;
+    }
 }
 
 
