@@ -17,5 +17,4 @@ public class Warrior extends Character {
         this.setDefensiveStuff(new Shield("Bouclier","Targe en Bois", 5));
     }
 
-
 }
