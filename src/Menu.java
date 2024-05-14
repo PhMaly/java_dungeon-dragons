@@ -1,3 +1,4 @@
+import board.Cell;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
@@ -80,6 +81,10 @@ public class Menu {
         System.out.println(dice);
         Scanner input = new Scanner(System.in);
         this.inputDice = input.nextInt();
+    }
+
+    public void displayCell(Cell cell) {
+        System.out.println(cell.toString());
     }
 
     public int getInputDice() {

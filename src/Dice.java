@@ -9,8 +9,9 @@ public class Dice {
     }
 
     public void throwDice(){
-        Random randomDice = new Random();
-        numberFace = randomDice.nextInt(6) + 1;
+//        Random randomDice = new Random();
+//        numberFace = randomDice.nextInt(6) + 1;
+        numberFace = 1;
     }
 
     public int getNumberFace() {
