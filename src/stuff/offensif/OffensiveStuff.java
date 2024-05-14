@@ -1,6 +1,6 @@
-package stuff;
+package stuff.offensif;
 
-import board.Cell;
+import board.listOfCells.Cell;
 
 abstract public class OffensiveStuff implements Cell {
 

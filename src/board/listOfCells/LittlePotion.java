@@ -1,4 +1,4 @@
-package board;
+package board.listOfCells;
 
 public class LittlePotion extends PotionCell{
 

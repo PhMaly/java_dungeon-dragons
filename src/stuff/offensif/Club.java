@@ -1,4 +1,4 @@
-package stuff;
+package stuff.offensif;
 
 public class Club extends Weapon{
 

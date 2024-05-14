@@ -1,7 +1,7 @@
 package characters;
 
-import stuff.DefensiveStuff;
-import stuff.OffensiveStuff;
+import stuff.defensife.DefensiveStuff;
+import stuff.offensif.OffensiveStuff;
 
 abstract public class Character {
 

@@ -1,10 +1,9 @@
-package stuff;
+package stuff.defensife;
 
 import characters.Character;
-import characters.Warrior;
 import characters.Wizard;
 
-public class Philtre extends DefensiveStuff{
+public class Philtre extends DefensiveStuff {
 
     public Philtre(Integer position) {
         super("Philtre", "Armor++", 5, position);

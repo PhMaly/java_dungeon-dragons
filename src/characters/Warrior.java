@@ -1,7 +1,7 @@
 package characters;
 
-import characters.Character;
-import stuff.*;
+import stuff.defensife.Shield;
+import stuff.offensif.Sword;
 
 public class Warrior extends Character {
 

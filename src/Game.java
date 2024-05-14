@@ -1,8 +1,9 @@
 import board.Board;
 import characters.Character;
+import dice.Dice;
 import exceptions.CharacterWithoutPVException;
 import exceptions.CharacterOutOfBoardException;
-import board.Cell;
+import board.listOfCells.Cell;
 
 public class Game {
 
@@ -11,11 +12,10 @@ public class Game {
     private Character hero;
     private Dice throwDice;
     private int heroPosition;
-    //private List<Cell> cellBoard;
 
     public Game() {
         this.menu = new Menu();
-        this.board = new Board(4);
+        this.board = new Board(13);
         this.throwDice = new Dice();
 
     }
@@ -64,7 +64,7 @@ public class Game {
             cell.interactWithHeroes(this.hero);
 
         } else {
-            System.out.println("Throw Dice please");
+            System.out.println("Throw dice.Dice please");
         }
         if (this.hero.getPosition() > board.size()) {
             throw new CharacterOutOfBoardException();

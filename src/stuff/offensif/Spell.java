@@ -1,7 +1,6 @@
-package stuff;
+package stuff.offensif;
 
 import characters.Character;
-import characters.Warrior;
 import characters.Wizard;
 
 abstract public class Spell extends OffensiveStuff{

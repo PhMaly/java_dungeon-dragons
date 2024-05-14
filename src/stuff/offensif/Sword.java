@@ -1,4 +1,4 @@
-package stuff;
+package stuff.offensif;
 
 public class Sword extends Weapon{
 

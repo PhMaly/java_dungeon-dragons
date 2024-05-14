@@ -1,4 +1,4 @@
-import board.Cell;
+import board.listOfCells.Cell;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
@@ -77,7 +77,7 @@ public class Menu {
     }
 
     public void displayThrowDice() {
-        String dice = "1.Throw Dice";
+        String dice = "1.Throw dice.Dice";
         System.out.println(dice);
         Scanner input = new Scanner(System.in);
         this.inputDice = input.nextInt();

@@ -1,4 +1,4 @@
-package stuff;
+package stuff.offensif;
 
 import characters.Character;
 import characters.Warrior;

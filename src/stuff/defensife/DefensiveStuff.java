@@ -1,6 +1,6 @@
-package stuff;
+package stuff.defensife;
 
-import board.Cell;
+import board.listOfCells.Cell;
 
 abstract public class DefensiveStuff implements Cell {
 

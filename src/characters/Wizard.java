@@ -1,7 +1,7 @@
 package characters;
 
-import stuff.*;
-import characters.Character;
+import stuff.defensife.Philtre;
+import stuff.offensif.Flash;
 
 public class Wizard extends Character {
 

@@ -1,6 +1,12 @@
 package board;
 
-import stuff.*;
+import board.listOfCells.*;
+import stuff.defensife.Philtre;
+import stuff.defensife.Shield;
+import stuff.offensif.Club;
+import stuff.offensif.FireBall;
+import stuff.offensif.Flash;
+import stuff.offensif.Sword;
 
 import java.util.ArrayList;
 import java.util.List;

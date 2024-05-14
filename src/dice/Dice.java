@@ -1,4 +1,4 @@
-import java.util.Random;
+package dice;
 
 public class Dice {
 
@@ -24,7 +24,7 @@ public class Dice {
 
     @Override
     public String toString() {
-        return "Dice{" +
+        return "dice.Dice{" +
                 "numberFace=" + numberFace +
                 '}';
     }

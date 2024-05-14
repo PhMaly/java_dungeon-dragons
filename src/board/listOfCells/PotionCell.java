@@ -1,4 +1,4 @@
-package board;
+package board.listOfCells;
 
 import characters.Character;
 
