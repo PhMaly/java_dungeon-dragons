@@ -3,10 +3,11 @@ package stuff;
 import characters.Character;
 import characters.Warrior;
 
-public class Weapon extends OffensiveStuff {
+abstract public class Weapon extends OffensiveStuff {
 
-    public Weapon(String weapon, String name, int attackLevel) {
-        super(weapon, name, attackLevel);
+    public Weapon(String weapon, String name, int attackLevel, Integer position) {
+        //Constructeur de OffensiveStuff.
+        super(weapon, name, attackLevel, position);
     }
 
     @Override

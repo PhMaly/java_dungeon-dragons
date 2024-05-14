@@ -1,10 +1,7 @@
 package characters;
 
-import stuff.DefensiveStuff;
-import stuff.OffensiveStuff;
+import stuff.*;
 import characters.Character;
-import stuff.Philtre;
-import stuff.Spell;
 
 public class Wizard extends Character {
 
@@ -14,8 +11,8 @@ public class Wizard extends Character {
 
         this.setPV(6);
         this.setStrengthPoint(15);
-        this.setOffensiveStuff(new Spell("Sort","Etincelle",5));
-        this.setDefensiveStuff(new Philtre("Philtre","Philtre de defense mineure", 5));
+        this.setOffensiveStuff(new Flash("Flash", "Spark", 1));
+        this.setDefensiveStuff(new Philtre("Philtre","Bad Philter",1));
     }
 
 }

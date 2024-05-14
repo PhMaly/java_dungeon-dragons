@@ -1,6 +1,6 @@
 package board;
 
-import stuff.Shield;
+import stuff.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +13,19 @@ public class Board {
     public Board(int sizeBoard) {
 //        this.sizeBoard = new int[sizeBoard];
         this.cellBoard = new ArrayList<>();
-        this.cellBoard.add(new EmptyCell());
-        this.cellBoard.add(new EmptyCell());
-        this.cellBoard.add(new EnemyCell("Orc", 5, 5));
-        this.cellBoard.add(new Shield("Bouclier", "Ecu en argent", 5));
-        this.cellBoard.add(new PotionCell("Potion", 5));
+        this.cellBoard.add(new EmptyCell(0));
+        this.cellBoard.add(new EmptyCell(1));
+        this.cellBoard.add(new GoblinCell(2));
+        this.cellBoard.add(new Shield(3));
+        this.cellBoard.add(new LittlePotion(4));
+        this.cellBoard.add(new Flash(5));
+        this.cellBoard.add(new Club(6));
+        this.cellBoard.add(new Philtre(7));
+        this.cellBoard.add(new OrcCell(8));
+        this.cellBoard.add(new Sword(9));
+        this.cellBoard.add(new BigPotion(10));
+        this.cellBoard.add(new FireBall(11));
+        this.cellBoard.add(new DragonCell(12));
 
     }
 

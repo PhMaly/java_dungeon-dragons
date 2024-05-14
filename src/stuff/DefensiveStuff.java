@@ -7,12 +7,25 @@ abstract public class DefensiveStuff implements Cell {
     private String typeDefense;
     private String nameDefense;
     private int defensePower;
+    private Integer positionOnBoard;
 
 
-    public DefensiveStuff(String typeDefense, String nameDefense, int defensePower) {
+
+    public DefensiveStuff(String typeDefense, String nameDefense, int defensePower, Integer positionOnBoard) {
         this.typeDefense = typeDefense;
         this.nameDefense = nameDefense;
         this.defensePower = defensePower;
+        this.positionOnBoard = positionOnBoard;
+    }
+
+    @Override
+    public String toString() {
+        return "DefensiveStuff{" +
+                "typeDefense='" + typeDefense + '\'' +
+                ", nameDefense='" + nameDefense + '\'' +
+                ", defensePower=" + defensePower +
+                ", positionOnBoard=" + positionOnBoard +
+                '}';
     }
 
     public String getTypeDefense() {
@@ -39,12 +52,11 @@ abstract public class DefensiveStuff implements Cell {
         this.defensePower = defensePower;
     }
 
-    @Override
-    public String toString() {
-        return "DefensiveStuff{" +
-                "typeDefense='" + typeDefense + '\'' +
-                ", nameDefense='" + nameDefense + '\'' +
-                ", defensePower=" + defensePower +
-                '}';
+    public int getPositionOnBoard() {
+        return positionOnBoard;
+    }
+
+    public void setPositionOnBoard(Integer positionOnBoard) {
+        this.positionOnBoard = positionOnBoard;
     }
 }

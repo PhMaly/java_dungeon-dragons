@@ -21,8 +21,8 @@ public class Menu {
 
         while (true) {
 
-            String createCharacter = "1.Create Charactere";
-            String editCharacter = "2.Edit Charactere";
+            String createCharacter = "1.New Character";
+            String editCharacter = "2.Edit Character";
             String startGame = "3.Start Game";
 
             System.out.println(createCharacter);
@@ -30,7 +30,7 @@ public class Menu {
             System.out.println(startGame);
 
             Scanner input = new Scanner(System.in);
-            System.out.println("New Charactere, Edit Charactere or Start Game ?");
+            System.out.println("New Character, Edit Character or Start Game ?");
 
 
             int choice = input.nextInt();

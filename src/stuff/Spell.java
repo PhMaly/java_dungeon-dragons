@@ -4,10 +4,10 @@ import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
 
-public class Spell extends OffensiveStuff{
+abstract public class Spell extends OffensiveStuff{
 
-    public Spell(String weapon, String name, int attackLevel) {
-        super(weapon, name, attackLevel);
+    public Spell(String weapon, String name, int attackLevel, Integer position) {
+        super(weapon, name, attackLevel, position);
     }
 
     @Override

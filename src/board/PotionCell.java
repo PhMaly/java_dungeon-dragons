@@ -5,12 +5,14 @@ import characters.Character;
 
 public class PotionCell implements Cell {
 
-    private String lootType;
+    private String potionType;
     private int lifePower;
+    private int positionOnBoard;
 
-    public PotionCell(String lootType, int lifePower) {
-        this.lootType = lootType;
+    public PotionCell(String type, int lifePower, int positionOnBoard) {
+        this.potionType = type;
         this.lifePower = lifePower;
+        this.positionOnBoard = positionOnBoard;
     }
 
     @Override
@@ -20,9 +22,10 @@ public class PotionCell implements Cell {
 
     @Override
     public String toString() {
-        return "LootCell{" +
-                "lootType='" + lootType + '\'' +
+        return "PotionCell{" +
+                "potionType='" + potionType + '\'' +
                 ", lifePower=" + lifePower +
+                ", positionOnBoard=" + positionOnBoard +
                 '}';
     }
 }

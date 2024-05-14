@@ -1,10 +1,7 @@
 package characters;
 
 import characters.Character;
-import stuff.DefensiveStuff;
-import stuff.OffensiveStuff;
-import stuff.Shield;
-import stuff.Weapon;
+import stuff.*;
 
 public class Warrior extends Character {
 
@@ -13,8 +10,8 @@ public class Warrior extends Character {
 
         this.setPV(10);
         this.setStrengthPoint(10);
-        this.setOffensiveStuff(new Weapon("Arme","Gourdin",5));
-        this.setDefensiveStuff(new Shield("Bouclier","Targe en Bois", 5));
+        this.setOffensiveStuff(new Sword("Sword","Stick",1));
+        this.setDefensiveStuff(new Shield("Shield","Wood Shield",1));
     }
 
 }
