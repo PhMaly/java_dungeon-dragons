@@ -1,6 +1,8 @@
 package stuff;
 
-abstract public class OffensiveStuff {
+import board.Cell;
+
+abstract public class OffensiveStuff implements Cell {
 
     private String typeWeapon;
     private String nameWeapon;
