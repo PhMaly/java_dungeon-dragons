@@ -7,17 +7,20 @@ import com.phil.dnd.exceptions.CharacterWithoutPVException;
 import com.phil.dnd.exceptions.CharacterOutOfBoardException;
 import com.phil.dnd.board.listOfCells.Cell;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
     private Menu menu;
     private Board board;
+//    private List<Cell> cellList;
     private Character hero;
     private Dice throwDice;
-    private int heroPosition;
 
     public Game() {
         this.menu = new Menu();
-        this.board = new Board(13);
+        this.board = new Board();
         this.throwDice = new Dice();
 
     }

@@ -21,6 +21,10 @@ abstract public class EnemyCell implements Cell {
         this.positionOnBoard = position;
     }
 
+//    public void enemyDamage(Character hero){
+//        this.attack - hero.getDefensiveStuff();
+//    }
+
     @Override
     public void interactWithHeroes(Character hero) {
 

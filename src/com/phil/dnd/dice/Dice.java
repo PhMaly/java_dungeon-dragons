@@ -1,5 +1,7 @@
 package com.phil.dnd.dice;
 
+import java.util.Random;
+
 public class Dice {
 
     private int numberFace;
@@ -9,9 +11,9 @@ public class Dice {
     }
 
     public void throwDice(){
-//        Random randomDice = new Random();
-//        numberFace = randomDice.nextInt(6) + 1;
-        numberFace = 1;
+        Random randomDice = new Random();
+        numberFace = randomDice.nextInt(6) + 1;
+//        numberFace = 1;
     }
 
     public int getNumberFace() {
