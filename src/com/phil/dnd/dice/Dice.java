@@ -1,3 +1,5 @@
+package com.phil.dnd.dice;
+
 import java.util.Random;
 
 public class Dice {
@@ -9,9 +11,9 @@ public class Dice {
     }
 
     public void throwDice(){
-//        Random randomDice = new Random();
-//        numberFace = randomDice.nextInt(6) + 1;
-        numberFace = 1;
+        Random randomDice = new Random();
+        numberFace = randomDice.nextInt(6) + 1;
+//        numberFace = 1;
     }
 
     public int getNumberFace() {
@@ -24,7 +26,7 @@ public class Dice {
 
     @Override
     public String toString() {
-        return "Dice{" +
+        return "dice.Dice{" +
                 "numberFace=" + numberFace +
                 '}';
     }

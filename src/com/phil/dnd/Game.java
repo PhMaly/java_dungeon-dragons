@@ -1,8 +1,14 @@
-import board.Board;
-import characters.Character;
-import exceptions.CharacterWithoutPVException;
-import exceptions.CharacterOutOfBoardException;
-import board.Cell;
+package com.phil.dnd;
+
+import com.phil.dnd.board.Board;
+import com.phil.dnd.characters.Character;
+import com.phil.dnd.dice.Dice;
+import com.phil.dnd.exceptions.CharacterWithoutPVException;
+import com.phil.dnd.exceptions.CharacterOutOfBoardException;
+import com.phil.dnd.board.listOfCells.Cell;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
@@ -10,12 +16,10 @@ public class Game {
     private Board board;
     private Character hero;
     private Dice throwDice;
-    private int heroPosition;
-    //private List<Cell> cellBoard;
 
     public Game() {
         this.menu = new Menu();
-        this.board = new Board(4);
+        this.board = new Board();
         this.throwDice = new Dice();
 
     }
@@ -38,9 +42,9 @@ public class Game {
             try {
                 gameTurn();
             } catch (CharacterOutOfBoardException error) {
-                System.out.println("You Win !");
+                menu.displayHeroWin();
             } catch (CharacterWithoutPVException error) {
-                System.out.println("You Lost !");
+                menu.displayHeroLost();
             }
         }
 
@@ -59,17 +63,22 @@ public class Game {
 
             //javance sur la nouvelle case
             this.hero.setPosition(this.hero.getPosition() + diceResult);
+
+            if (this.hero.getPosition() > board.size()) {
+                throw new CharacterOutOfBoardException();
+            } else if (this.hero.getPV() <= 0) {
+                throw new CharacterWithoutPVException(hero);
+            }
+
             Cell cell = this.board.getCell(this.hero.getPosition());
             menu.displayCell(cell);
             cell.interactWithHeroes(this.hero);
 
+            //Je peux afficher les stats de mon hero
+            menu.displayHeroStat();
+
         } else {
-            System.out.println("Throw Dice please");
-        }
-        if (this.hero.getPosition() > board.size()) {
-            throw new CharacterOutOfBoardException();
-        } else if (this.hero.getPV() <= 0) {
-            throw new CharacterWithoutPVException(hero);
+            System.out.println("Throw dice please");
         }
     }
 }

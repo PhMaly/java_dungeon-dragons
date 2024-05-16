@@ -1,14 +1,17 @@
-package board;
+package com.phil.dnd.board.listOfCells;
 
-import characters.Character;
+import com.phil.dnd.characters.Character;
 
 public class EmptyCell implements Cell {
 
 
     private String rest;
+    private Integer positionOnBoard;
 
-    public EmptyCell() {
+
+    public EmptyCell(Integer positionOnBoard) {
         this.rest = "Get a rest";
+        this.positionOnBoard = positionOnBoard;
     }
 
     @Override
@@ -20,6 +23,7 @@ public class EmptyCell implements Cell {
     public String toString() {
         return "EmptyCell{" +
                 "rest='" + rest + '\'' +
+                ", positionOnBoard=" + positionOnBoard +
                 '}';
     }
 }

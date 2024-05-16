@@ -1,7 +1,7 @@
-package characters;
+package com.phil.dnd.characters;
 
-import stuff.DefensiveStuff;
-import stuff.OffensiveStuff;
+import com.phil.dnd.stuff.defensife.DefensiveStuff;
+import com.phil.dnd.stuff.offensif.OffensiveStuff;
 
 abstract public class Character {
 
@@ -31,6 +31,14 @@ abstract public class Character {
         this.job = type;
     }
 
+
+    public int getHeroAttack() {
+        return this.strengthPoint + offensiveStuff.getAttackPower();
+    }
+
+    public int getHeroDefense() {
+        return defensiveStuff.getDefensePower();
+    }
 
     public String getJob() {
         return job;

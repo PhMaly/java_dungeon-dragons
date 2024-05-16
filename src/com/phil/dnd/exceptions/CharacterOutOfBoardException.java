@@ -1,4 +1,4 @@
-package exceptions;
+package com.phil.dnd.exceptions;
 
 public class CharacterOutOfBoardException extends Exception {
 
