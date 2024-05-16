@@ -28,24 +28,35 @@ abstract public class EnemyCell implements Cell {
     @Override
     public void interactWithHeroes(Character hero) {
 
-        while (this.PV > 0 && hero.getPV() > 0) {
-            this.setPV(this.PV - hero.getHeroAttack());
-            menu.displayHeroDamage(hero);
-            menu.displayEnemyLife(this);
-            if (this.PV > 0) {
-                if (hero.getHeroDefense() > this.attack) {
-                    menu.displayEnemyNullDamage(this);
-                } else {
-                    hero.setPV(hero.getHeroDefense() - this.attack);
-                    menu.displayEnemyDamage(this);
-                }
-            }
+        while (isAllAlive(hero)) {
+            heroAttackEnemy(hero);
+
             if (this.PV <= 0) {
-                System.out.println(this.type + " is dead ! ");
-                System.out.println("Great ! you are always alive ... for the moment.");
+                menu.displayEnemyDead(this);
+            } else {
+                enemyAttackHero(hero);
             }
         }
+    }
 
+    private boolean isAllAlive(Character hero) {
+        return this.PV > 0 && hero.getPV() > 0;
+    }
+
+    private void heroAttackEnemy(Character hero) {
+        this.setPV(this.PV - hero.getHeroAttack());
+        menu.displayHeroDamage(hero);
+        menu.displayEnemyLife(this);
+    }
+
+    private void enemyAttackHero(Character hero) {
+        int takingDamage = this.attack - hero.getHeroDefense() ;
+        if (takingDamage < 1) {
+            menu.displayEnemyNullDamage(this);
+        } else {
+            hero.setPV(hero.getPV() - takingDamage);
+            menu.displayEnemyDamage(this);
+        }
     }
 
     @Override

@@ -164,6 +164,11 @@ public class Menu {
     public void setInputChoice(int inputChoice) {
         this.inputChoice = inputChoice;
     }
+
+    public void displayEnemyDead(EnemyCell cell) {
+        System.out.println(cell.getType() + " is dead ! ");
+        System.out.println("Great ! you are always alive ... for the moment.");
+    }
 }
 
 

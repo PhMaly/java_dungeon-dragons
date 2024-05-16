@@ -37,7 +37,7 @@ abstract public class Character {
     }
 
     public int getHeroDefense() {
-        return this.PV + defensiveStuff.getDefensePower();
+        return defensiveStuff.getDefensePower();
     }
 
     public String getJob() {
