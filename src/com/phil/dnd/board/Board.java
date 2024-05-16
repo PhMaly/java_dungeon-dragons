@@ -14,11 +14,11 @@ import java.util.List;
 
 public class Board {
 
-    //    private int[] sizeBoard;
+
     private List<Cell> cellBoard;
 
     public Board() {
-//        this.sizeBoard = new int[sizeBoard];
+
         this.cellBoard = new ArrayList<>();
         this.cellBoard.add(new EmptyCell(0));
         this.cellBoard.add(new Flash(1));
@@ -87,15 +87,6 @@ public class Board {
 
         Collections.shuffle(cellBoard);
     }
-
-//
-//    public int[] getSizeBoard() {
-//        return sizeBoard;
-//    }
-//
-//    public void setSizeBoard(int[] sizeBoard) {
-//        this.sizeBoard = sizeBoard;
-//    }
 
     public Cell getCell(int position) {
         return cellBoard.get(position);

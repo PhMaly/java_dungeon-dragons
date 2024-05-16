@@ -14,7 +14,6 @@ public class Game {
 
     private Menu menu;
     private Board board;
-//    private List<Cell> cellList;
     private Character hero;
     private Dice throwDice;
 
@@ -64,6 +63,13 @@ public class Game {
 
             //javance sur la nouvelle case
             this.hero.setPosition(this.hero.getPosition() + diceResult);
+
+            if (this.hero.getPosition() > board.size()) {
+                throw new CharacterOutOfBoardException();
+            } else if (this.hero.getPV() <= 0) {
+                throw new CharacterWithoutPVException(hero);
+            }
+
             Cell cell = this.board.getCell(this.hero.getPosition());
             menu.displayCell(cell);
             cell.interactWithHeroes(this.hero);
@@ -73,11 +79,6 @@ public class Game {
 
         } else {
             System.out.println("Throw dice please");
-        }
-        if (this.hero.getPosition() > board.size()) {
-            throw new CharacterOutOfBoardException();
-        } else if (this.hero.getPV() <= 0) {
-            throw new CharacterWithoutPVException(hero);
         }
     }
 }
