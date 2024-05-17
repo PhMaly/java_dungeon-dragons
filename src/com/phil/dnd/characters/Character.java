@@ -98,13 +98,12 @@ abstract public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "job='" + job + '\'' +
-                ", name='" + name + '\'' +
-                ", PV=" + PV +
-                ", strengthPoint=" + strengthPoint +
-                ", offensiveStuff=" + offensiveStuff +
-                ", defensiveStuff=" + defensiveStuff +
-                '}';
+        return "\n Your Stats :" + '\n' +
+                " Job = " + job + '\n' +
+                " Name = " + name + '\n' +
+                " ❤\uFE0F = " + PV + '\n' +
+                " \uD83D\uDCAA\uD83C\uDFFB = " + strengthPoint + '\n' +
+                " ⚔\uFE0F = " + offensiveStuff + '\n' +
+                " \uD83D\uDEE1\uFE0F = " + defensiveStuff;
     }
 }

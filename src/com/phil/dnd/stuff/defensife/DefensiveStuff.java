@@ -20,12 +20,12 @@ abstract public class DefensiveStuff implements Cell {
 
     @Override
     public String toString() {
-        return "DefensiveStuff{" +
-                "typeDefense='" + typeDefense + '\'' +
-                ", nameDefense='" + nameDefense + '\'' +
-                ", defensePower=" + defensePower +
-                ", positionOnBoard=" + positionOnBoard +
-                '}';
+        return "Defensive Loot [" +
+                "Defense type = " + typeDefense +
+                ", Defense name = " + nameDefense +
+                ", \uD83D\uDEE1\uFE0F = " + defensePower +
+                ", \uD83D\uDCCD = " + positionOnBoard +
+                ']'+ '\n';
     }
 
     public String getTypeDefense() {

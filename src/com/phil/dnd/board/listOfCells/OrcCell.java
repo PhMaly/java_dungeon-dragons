@@ -4,9 +4,13 @@ public class OrcCell extends EnemyCell {
 
     public OrcCell(Integer position) {
         //Constructeur de EnemyCell
-        super("Orc", 10, 4, position);
+        super("\uD83E\uDDCC", 10, 4, position);
 
     }
 
 
+    @Override
+    public void displayCellType() {
+        System.out.print("[" + getType() + "]");
+    }
 }

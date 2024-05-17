@@ -88,7 +88,7 @@ public class Board {
         Collections.shuffle(cellBoard);
     }
 
-    public Cell getCell(int position) {
+    public Cell getCellHero(int position) {
         return cellBoard.get(position);
     }
 
@@ -99,7 +99,15 @@ public class Board {
     @Override
     public String toString() {
         return "Board{" +
-                "size=" + cellBoard.size() +
+                "cellBoard=" + cellBoard +
                 '}';
+    }
+
+    public List<Cell> getCellBoard() {
+        return cellBoard;
+    }
+
+    public void setCellBoard(List<Cell> cellBoard) {
+        this.cellBoard = cellBoard;
     }
 }
