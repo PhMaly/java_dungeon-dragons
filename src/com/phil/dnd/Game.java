@@ -51,7 +51,7 @@ public class Game {
 
     public void gameTurn() throws CharacterOutOfBoardException, CharacterWithoutPVException {
 
-        menu.displayYouAreHere();
+        menu.displayYouAreHere(hero);
         menu.displayBoard(board, hero);
 
         //lance le dés
@@ -65,14 +65,16 @@ public class Game {
 
             //javance sur la nouvelle case
             this.hero.setPosition(this.hero.getPosition() + diceResult);
-            Cell cell = this.board.getCellHero(this.hero.getPosition());
-            menu.displayYouAreHere();
 
             if (this.hero.getPosition() > board.size()) {
                 throw new CharacterOutOfBoardException();
             }
+            Cell cell = this.board.getCellHero(this.hero.getPosition());
+            menu.displayYouAreHere(hero);
+
 
             menu.displayCell(cell);
+            menu.displayHeroStat(hero);
             cell.interactWithHeroes(this.hero);
             menu.displayBoard(board, hero);
 
@@ -81,7 +83,7 @@ public class Game {
             }
 
             //Je peux afficher les stats de mon hero
-            menu.displayHeroStat();
+            menu.displayHeroStat(hero);
 
         } else {
             System.out.println("Throw dice please");

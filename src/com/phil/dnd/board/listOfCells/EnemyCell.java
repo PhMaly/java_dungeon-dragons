@@ -13,7 +13,6 @@ abstract public class EnemyCell implements Cell {
     private int attack;
     private int positionOnBoard;
     private Menu menu = new Menu();
-    private Dice dice = new Dice();
 
 
     public EnemyCell(String type, int PV, int attack, int position) {
@@ -28,31 +27,24 @@ abstract public class EnemyCell implements Cell {
     public void interactWithHeroes(Character hero) {
 
         while (isAllAlive(hero)) {
-            heroAttackEnemy(hero);
-
-            if (this.PV <= 0) {
-                menu.displayEnemyDead(this);
+            if (menu.displayContinueFightOrRun(hero)) {
+                heroAttackEnemy(hero);
+                if (enemyIsDead()) {
+                    menu.displayEnemyDead(this);
+                } else {
+                    enemyAttackHero(hero);
+                    menu.displayHeroStat(hero);
+                }
             } else {
-                enemyAttackHero(hero);
-                menu.displayContinueFightOrRun();
-                if (heroRun(hero)) return;
-                menu.displayYouAreHere();
+                break;
             }
         }
 
     }
 
-    private boolean heroRun(Character hero) {
-        if (menu.getInputChoice() == 2) {
-            int diceResult = 0;
-            dice.throwDiceResult();
-            diceResult = dice.getNumberFace();
-            hero.setPosition(hero.getPosition() - diceResult);
-            return true;
-        }
-        return false;
+    private boolean enemyIsDead() {
+        return this.PV <= 0;
     }
-
 
     private boolean isAllAlive(Character hero) {
         return this.PV > 0 && hero.getPV() > 0;

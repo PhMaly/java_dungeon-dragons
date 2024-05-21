@@ -2,11 +2,11 @@ package com.phil.dnd;
 
 import com.phil.dnd.board.Board;
 import com.phil.dnd.board.listOfCells.Cell;
-import com.phil.dnd.board.listOfCells.DragonCell;
 import com.phil.dnd.board.listOfCells.EnemyCell;
 import com.phil.dnd.characters.Character;
 import com.phil.dnd.characters.Warrior;
 import com.phil.dnd.characters.Wizard;
+import com.phil.dnd.dice.Dice;
 
 import java.util.Scanner;
 
@@ -45,25 +45,20 @@ public class Menu {
             int choice = scanner.nextInt();
             if (choice == 1) {
 
-                System.out.println("Choose your class :");
-                System.out.println("1.Warrior");
-                System.out.println("2.Wizard");
-                this.classChoice = scanner.nextInt();
-                System.out.println("You chose : " + classChoice);
-
-
-                System.out.println("Choose a name : ");
-                scanner = new Scanner(System.in);
-                this.nameChoice = scanner.nextLine();
-                System.out.println("His name: " + this.nameChoice);
+                classChoiceInput();
 
                 switch (classChoice) {
                     case 1:
+                        nameChoiceInput();
                         hero = new Warrior(this.nameChoice);
                         break;
 
                     case 2:
+                        nameChoiceInput();
                         hero = new Wizard(this.nameChoice);
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please choose 1 or 2.");
                         break;
                 }
 
@@ -84,14 +79,29 @@ public class Menu {
         }
     }
 
+    private void classChoiceInput() {
+        System.out.println("Choose your class :");
+        System.out.println("1.Warrior");
+        System.out.println("2.Wizard");
+        this.classChoice = scanner.nextInt();
+        System.out.println("You chose : " + classChoice);
+    }
+
+    private void nameChoiceInput() {
+        System.out.println("Choose a name : ");
+        scanner = new Scanner(System.in);
+        this.nameChoice = scanner.nextLine();
+        System.out.println("His name: " + this.nameChoice);
+    }
+
     public void displayThrowDice() {
         String dice = "\n \n 1.Throw Dice" + " \uD83C\uDFB2 \n";
         System.out.println(dice);
         this.inputDice = scanner.nextInt();
     }
 
-    public void displayHeroStat() {
-        String stat = "\n \n Show your Stats ?" + " \uD83D\uDCCA";
+    public void displayHeroStat(Character hero) {
+        String stat = "\n Show your Stats ?" + " \uD83D\uDCCA";
         System.out.println(stat);
         System.out.println("1.Yes");
         System.out.println("2.No");
@@ -103,7 +113,11 @@ public class Menu {
                 break;
 
             case 2:
-                System.out.println("We continue !");
+                System.out.println("We continue !" + "\n");
+                break;
+
+            default:
+                System.out.println("Invalid choice. Please choose 1 or 2.");
                 break;
         }
     }
@@ -111,11 +125,11 @@ public class Menu {
     public void displayBoard(Board board, Character hero) {
         for (int i = 0; i < board.size(); i++) {
             Cell cell = board.getCellBoard().get(i);
-                if (i == hero.getPosition()) {
-                    System.out.print("[" +"\uD83D\uDCCD"+ "]");
-                } else {
-                    cell.displayCellType();
-                }
+            if (i == hero.getPosition()) {
+                System.out.print("[" + "\uD83D\uDCCD" + "]");
+            } else {
+                cell.displayCellType();
+            }
             if ((i + 1) % 30 == 0) {
                 System.out.println();
             }
@@ -127,8 +141,8 @@ public class Menu {
         System.out.println("You arrive at : " + cell.toString());
     }
 
-    public void displayYouAreHere() {
-        System.out.println("You are here : " + this.hero.getPosition() + "/64" + " \uD83D\uDCCD\uD83D\uDDFA\uFE0F \n");
+    public void displayYouAreHere(Character hero) {
+        System.out.println("You are here : " + hero.getPosition() + "/64" + " \uD83D\uDCCD\uD83D\uDDFA\uFE0F \n");
     }
 
     public void displayHeroLost() {
@@ -160,12 +174,33 @@ public class Menu {
         System.out.println("Great ! you are always alive ... for the moment. \n");
     }
 
-    public void displayContinueFightOrRun() {
+    public boolean displayContinueFightOrRun(Character hero) {
         String stat = "Continue the fight or Run ?";
         System.out.println(stat);
         System.out.println("1.Continue");
         System.out.println("2.Run");
         this.inputChoice = scanner.nextInt();
+
+        switch (inputChoice) {
+            case 1:
+                return true;
+            case 2:
+                System.out.println("You Run !");
+                int diceResult = 0;
+                Dice dice = new Dice();
+                dice.throwDiceResult();
+                diceResult = dice.getNumberFace();
+                hero.setPosition(hero.getPosition() - diceResult);
+                System.out.println("You move back " + diceResult + " cell !" + "\n");
+                if (hero.getPosition() < 0){
+                    hero.setPosition(0);
+                }
+                displayYouAreHere(hero);
+                return false;
+            default:
+                System.out.println("Invalid choice. Please choose 1 or 2.");
+                return displayContinueFightOrRun(hero);
+        }
     }
 
     public int getInputDice() {
