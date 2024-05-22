@@ -18,12 +18,12 @@ abstract public class OffensiveStuff implements Cell {
 
     @Override
     public String toString() {
-        return "OffensiveStuff{" +
-                "typeWeapon='" + typeWeapon + '\'' +
-                ", nameWeapon='" + nameWeapon + '\'' +
-                ", attackPower=" + attackPower +
-                ", position=" + positionOnBoard +
-                '}';
+        return "Offensive Loot [ " +
+                "Weapon type = " + typeWeapon +
+                ", Weapon name = " + nameWeapon +
+                ", ⚔\uFE0F = " + attackPower +
+                ", \uD83D\uDCCD = " + positionOnBoard +
+                ']';
     }
 
     public String getTypeWeapon() {

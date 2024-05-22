@@ -7,7 +7,7 @@ public class Wizard extends Character {
 
 
     public Wizard(String name) {
-        super(name, "Wizard");
+        super(name, "\uD83E\uDDD9\uD83C\uDFFB\u200D");
 
         this.setPV(3);
         this.setStrengthPoint(8);

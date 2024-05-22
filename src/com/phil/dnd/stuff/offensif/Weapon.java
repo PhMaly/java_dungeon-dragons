@@ -5,6 +5,8 @@ import com.phil.dnd.characters.Warrior;
 
 abstract public class Weapon extends OffensiveStuff {
 
+    private String typeOfWeapon;
+
     public Weapon(String weapon, String name, int attackLevel, Integer position) {
         //Constructeur de OffensiveStuff.
         super(weapon, name, attackLevel, position);
@@ -16,5 +18,6 @@ abstract public class Weapon extends OffensiveStuff {
             hero.setOffensiveStuff(this);
         }
     }
+
 
 }

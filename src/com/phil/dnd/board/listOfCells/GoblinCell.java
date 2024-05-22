@@ -4,9 +4,13 @@ public class GoblinCell extends EnemyCell {
 
     public GoblinCell(Integer position) {
         //Constructeur de EnemyCell
-        super("Goblin", 7, 2, position);
+        super("\uD83E\uDDDF\u200D\uFE0F", 7, 2, position);
 
     }
 
 
+    @Override
+    public void displayCellType() {
+        System.out.print("[" + getType() + "]");
+    }
 }

@@ -10,7 +10,7 @@ public class EmptyCell implements Cell {
 
 
     public EmptyCell(Integer positionOnBoard) {
-        this.rest = "Get a rest";
+        this.rest = "Get a rest !";
         this.positionOnBoard = positionOnBoard;
     }
 
@@ -20,10 +20,14 @@ public class EmptyCell implements Cell {
     }
 
     @Override
+    public void displayCellType() {
+        System.out.print("[ ]");
+    }
+
+    @Override
     public String toString() {
-        return "EmptyCell{" +
-                "rest='" + rest + '\'' +
-                ", positionOnBoard=" + positionOnBoard +
-                '}';
+        return "Empty Cell :" +
+                rest +
+                " \uD83D\uDCCD = " + positionOnBoard+ '\n';
     }
 }

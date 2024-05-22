@@ -24,11 +24,24 @@ public class PotionCell implements Cell {
     }
 
     @Override
+    public void displayCellType() {
+        System.out.print("[" + potionType + "]");
+    }
+
+    @Override
     public String toString() {
-        return "PotionCell{" +
-                "potionType='" + potionType + '\'' +
-                ", lifePower=" + lifePower +
-                ", positionOnBoard=" + positionOnBoard +
-                '}';
+        return "Potion Loot [" +
+                "Potion type = " + potionType +
+                ", + ❤\uFE0F = " + lifePower +
+                ", \uD83D\uDCCD = " + positionOnBoard +
+                ']'+ '\n';
+    }
+
+    public String getPotionType() {
+        return potionType;
+    }
+
+    public void setPotionType(String potionType) {
+        this.potionType = potionType;
     }
 }

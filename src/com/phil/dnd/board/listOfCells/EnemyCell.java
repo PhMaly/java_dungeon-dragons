@@ -2,6 +2,7 @@ package com.phil.dnd.board.listOfCells;
 
 import com.phil.dnd.characters.Character;
 import com.phil.dnd.Menu;
+import com.phil.dnd.dice.Dice;
 import com.phil.dnd.stuff.defensife.DefensiveStuff;
 import com.phil.dnd.stuff.offensif.OffensiveStuff;
 
@@ -21,22 +22,28 @@ abstract public class EnemyCell implements Cell {
         this.positionOnBoard = position;
     }
 
-//    public void enemyDamage(Character hero){
-//        this.attack - hero.getDefensiveStuff();
-//    }
 
     @Override
     public void interactWithHeroes(Character hero) {
 
         while (isAllAlive(hero)) {
-            heroAttackEnemy(hero);
-
-            if (this.PV <= 0) {
-                menu.displayEnemyDead(this);
+            if (menu.displayContinueFightOrRun(hero)) {
+                heroAttackEnemy(hero);
+                if (enemyIsDead()) {
+                    menu.displayEnemyDead(this);
+                } else {
+                    enemyAttackHero(hero);
+                    menu.displayHeroStat(hero);
+                }
             } else {
-                enemyAttackHero(hero);
+                break;
             }
         }
+
+    }
+
+    private boolean enemyIsDead() {
+        return this.PV <= 0;
     }
 
     private boolean isAllAlive(Character hero) {
@@ -50,7 +57,7 @@ abstract public class EnemyCell implements Cell {
     }
 
     private void enemyAttackHero(Character hero) {
-        int takingDamage = this.attack - hero.getHeroDefense() ;
+        int takingDamage = this.attack - hero.getHeroDefense();
         if (takingDamage < 1) {
             menu.displayEnemyNullDamage(this);
         } else {
@@ -61,12 +68,11 @@ abstract public class EnemyCell implements Cell {
 
     @Override
     public String toString() {
-        return "EnemyCell{" +
-                "type='" + type + '\'' +
-                ", PV=" + PV +
-                ", attack=" + attack +
-                ", position=" + positionOnBoard +
-                '}';
+        return " EnemyCell :" + '\n' +
+                " Type = " + type + '\n' +
+                " ❤\uFE0F = " + PV + '\n' +
+                " ⚔\uFE0F = " + attack + '\n' +
+                " \uD83D\uDCCD = " + positionOnBoard + '\n';
     }
 
     public String getType() {
@@ -101,5 +107,5 @@ abstract public class EnemyCell implements Cell {
         this.positionOnBoard = positionOnBoard;
     }
 
-
 }
+

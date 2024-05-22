@@ -6,7 +6,7 @@ import com.phil.dnd.stuff.offensif.Sword;
 public class Warrior extends Character {
 
     public Warrior(String name) {
-        super(name, "Warrior");
+        super(name, "\uD83E\uDD77\uD83C\uDFFB");
 
         this.setPV(5);
         this.setStrengthPoint(5);

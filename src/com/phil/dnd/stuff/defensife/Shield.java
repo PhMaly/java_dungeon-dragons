@@ -6,7 +6,7 @@ import com.phil.dnd.characters.Warrior;
 public class Shield extends DefensiveStuff {
 
     public Shield(Integer position) {
-        super("Shield", "Iron Shield", 5, position);
+        super("\uD83D\uDD30", "Iron Shield", 5, position);
     }
 
     //Constructeur que j'utilise pour équiper un autre Shield par défaut à mon Warrior.
@@ -20,5 +20,10 @@ public class Shield extends DefensiveStuff {
             hero.setDefensiveStuff(this);
 
         }
+    }
+
+    @Override
+    public void displayCellType() {
+        System.out.print("[" + getTypeDefense() + "]");
     }
 }

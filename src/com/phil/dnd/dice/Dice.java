@@ -10,10 +10,9 @@ public class Dice {
 
     }
 
-    public void throwDice(){
+    public void throwDiceResult(){
         Random randomDice = new Random();
         numberFace = randomDice.nextInt(6) + 1;
-//        numberFace = 1;
     }
 
     public int getNumberFace() {
@@ -27,7 +26,7 @@ public class Dice {
     @Override
     public String toString() {
         return "dice.Dice{" +
-                "numberFace=" + numberFace +
+                "\uD83C\uDFB2" + numberFace +
                 '}';
     }
 }
