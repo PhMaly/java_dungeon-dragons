@@ -11,17 +11,21 @@ public class DatabaseConnection {
     String URL = "jdbc:mysql://hostname/ databaseName";
     String USER = "dndUser";
     String PASS = "1234";
+    private Connection connection;
 
-    public DatabaseConnection(){
+    public DatabaseConnection() {
 
         try {
-            Connection connection = DriverManager.getConnection(URL,USER,PASS);
-            Statement stmt =  connection.createStatement();
+            this.connection = DriverManager.getConnection(URL, USER, PASS);
+            //Statement stmt = connection.createStatement();
         } catch (SQLException error) {
             System.err.println(error.getMessage());
         }
     }
 
+    public Connection getConnection() {
+        return connection;
+    }
 }
 
 
