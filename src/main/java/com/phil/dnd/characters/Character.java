@@ -2,9 +2,12 @@ package com.phil.dnd.characters;
 
 import com.phil.dnd.stuff.defensife.DefensiveStuff;
 import com.phil.dnd.stuff.offensif.OffensiveStuff;
+import java.util.UUID;
 
 abstract public class Character {
 
+
+    private UUID id = UUID.randomUUID();
     private String job;
     private String name;
     private int PV;
@@ -94,6 +97,10 @@ abstract public class Character {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     @Override

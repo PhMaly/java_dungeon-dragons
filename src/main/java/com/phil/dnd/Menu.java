@@ -6,6 +6,7 @@ import com.phil.dnd.board.listOfCells.EnemyCell;
 import com.phil.dnd.characters.Character;
 import com.phil.dnd.characters.Warrior;
 import com.phil.dnd.characters.Wizard;
+import com.phil.dnd.database.DatabaseRequest;
 import com.phil.dnd.dice.Dice;
 
 import java.util.Scanner;
@@ -27,6 +28,7 @@ public class Menu {
     public Character displaySelectCharacter() {
 
         hero = null;
+        DatabaseRequest dbRequest = new DatabaseRequest();
 
         while (true) {
 
@@ -51,11 +53,13 @@ public class Menu {
                     case 1:
                         nameChoiceInput();
                         hero = new Warrior(this.nameChoice);
+                        dbRequest.createHero(hero);
                         break;
 
                     case 2:
                         nameChoiceInput();
                         hero = new Wizard(this.nameChoice);
+                        dbRequest.createHero(hero);
                         break;
                     default:
                         System.out.println("Invalid choice. Please choose 1 or 2.");

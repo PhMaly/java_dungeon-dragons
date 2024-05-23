@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DatabaseConnection {
 
-    String URL = "jdbc:mysql://hostname/ databaseName";
+    String URL = "jdbc:mysql://localhost:3306/DnD";
     String USER = "dndUser";
     String PASS = "1234";
     private Connection connection;
