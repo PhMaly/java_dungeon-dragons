@@ -67,7 +67,31 @@ public class Menu {
                 }
 
             } else if (choice == 2) {
-                System.out.println(hero);
+
+                dbRequest.getHeroes();
+
+//                //Récupérer le héros de la BDD.
+//                Character heroToEdit = dbRequest.getHeroes();
+//
+//                //demander à l'utilisateur le héros à modifier.
+//                System.out.println("Which hero do you want to modify ? Enter the hero ID :" + "\n");
+//                String idHero = scanner.nextLine();
+//
+//
+//                if (heroToEdit != null) {
+//                    //Demander à l'utilisateur le nouveau nom du héros.
+//                    System.out.println("New hero's name :");
+//                    String newName = scanner.nextLine();
+//
+//                    //Mettre à jour le nom du héros.
+//                    heroToEdit.setName(newName);
+//
+//                    //Appeler la methode editHero avec le héros mis à jour.
+//                    dbRequest.editHero(heroToEdit);
+//                } else {
+//                    System.out.println("No hero found with ID :" + idHero);
+//                }
+
 
             } else if (choice == 3) {
                 if (hero == null) {
@@ -196,7 +220,7 @@ public class Menu {
                 diceResult = dice.getNumberFace();
                 hero.setPosition(hero.getPosition() - diceResult);
                 System.out.println("You move back " + diceResult + " cell !" + "\n");
-                if (hero.getPosition() < 0){
+                if (hero.getPosition() < 0) {
                     hero.setPosition(0);
                 }
                 displayYouAreHere(hero);

@@ -14,8 +14,6 @@ public class Game {
     private Character hero;
     private Dice throwDice;
 
-
-
     public Game() {
         this.menu = new Menu();
         this.board = new Board();
@@ -29,9 +27,6 @@ public class Game {
     }
 
     public void playGame() {
-        //afficher le board
-        //menu.displayBoard(board, hero);
-
 
         //le perso et ses stats
         System.out.println(this.hero);

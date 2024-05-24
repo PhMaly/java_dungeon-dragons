@@ -4,7 +4,6 @@ package com.phil.dnd.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DatabaseConnection {
 
@@ -17,7 +16,6 @@ public class DatabaseConnection {
 
         try {
             this.connection = DriverManager.getConnection(URL, USER, PASS);
-            //Statement stmt = connection.createStatement();
         } catch (SQLException error) {
             System.err.println(error.getMessage());
         }

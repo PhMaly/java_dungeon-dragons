@@ -10,10 +10,8 @@ public class Warrior extends Character {
 
         this.setPV(5);
         this.setStrengthPoint(5);
-        this.setOffensiveStuff(null);
-        this.setDefensiveStuff(null);
-//        this.setOffensiveStuff(new Sword("Sword","Stick",1));
-//        this.setDefensiveStuff(new Shield("Shield","Wood Shield",1));
+        this.setOffensiveStuff(new Sword("Sword","Stick",1));
+        this.setDefensiveStuff(new Shield("Shield","Wood Shield",1));
     }
 
 }
